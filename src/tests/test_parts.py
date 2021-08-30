@@ -49,3 +49,9 @@ class TestRobotBus:
         the left arm is connected to the robot bus.
         """
         assert isinstance(self.robot_bus.left_arm, parts.LeftArm)
+
+    def test_right_foot_connected_to_robot_bus(self):
+        """
+        the right foot is connected to the robot bus too.
+        """
+        assert isinstance(self.robot_bus.right_foot, parts.RightFoot)
