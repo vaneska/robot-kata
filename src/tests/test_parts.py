@@ -20,3 +20,11 @@ class TestRobotBus:
         robot_bus = parts.RobotBus()
 
         assert robot_bus._turned_on_status is False
+
+    def test_left_arm_connected_to_robot_bus(self):
+        """
+        the left arm is connected to the robot bus.
+        """
+        robot_bus = parts.RobotBus()
+
+        assert isinstance(robot_bus.left_arm, parts.LeftArm)
