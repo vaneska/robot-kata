@@ -1,3 +1,5 @@
 
 class LeftArm:
-    pass
+
+    def __init__(self):
+        self.charge = 24
