@@ -18,6 +18,23 @@ class TestLeftArm:
         assert self.arm._turned_on_status is False
 
 
+class TestRightFoot:
+
+    arm = parts.RightFoot()
+
+    def test_initial_charge(self):
+        """
+        The right foot has a max charge (in Ampere Hour or Ah) of its internal 24KV battery.
+        """
+        assert self.arm._charge == 24
+
+    def test_initial_turned_on(self):
+        """
+        Finally the right foot also has a current On/Off switch status
+        """
+        assert self.arm._turned_on_status is False
+
+
 class TestRobotBus:
     robot_bus = parts.RobotBus()
 
