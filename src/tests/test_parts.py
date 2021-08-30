@@ -7,3 +7,8 @@ class TestLeftArm:
         arm = parts.LeftArm()
 
         assert arm.charge == 24
+
+    def test_initial_turned_on(self):
+        arm = parts.LeftArm()
+
+        assert arm._turned_on_status is False
