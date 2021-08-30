@@ -5,6 +5,12 @@ class TestLeftArm:
 
     arm = parts.LeftArm()
 
+    def test_max_charge(self):
+        """
+        В левой руке может быть максимально 24Ah заряда
+        """
+        assert self.arm._max_charge == 24
+
     def test_initial_charge(self):
         """
         The left arm has a max charge (in Ampere Hour or Ah) of its internal 24KV battery.
@@ -21,6 +27,12 @@ class TestLeftArm:
 class TestRightFoot:
 
     arm = parts.RightFoot()
+
+    def test_max_charge(self):
+        """
+        В правой ступне может быть максимально 24Ah заряда
+        """
+        assert self.arm._max_charge == 24
 
     def test_initial_charge(self):
         """

@@ -2,14 +2,16 @@
 class LeftArm:
 
     def __init__(self):
-        self._charge = 24
+        self._max_charge = 24
+        self._charge = self._max_charge
         self._turned_on_status = False
 
 
 class RightFoot:
 
     def __init__(self):
-        self._charge = 24
+        self._max_charge = 24
+        self._charge = self._max_charge
         self._turned_on_status = False
 
 

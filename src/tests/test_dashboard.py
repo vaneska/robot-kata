@@ -20,3 +20,36 @@ class TestDashBoard:
         report = self.dashboard.report_turn_on_status()
 
         assert report == origin_report
+
+
+class TestDashBoardTotalRechargeCostReport:
+    """
+    implement a function/method that navigates all the robot parts starting from robot bus,
+     and calculates the total cost to re-charge all the internal batteries;
+     the cost per 1000 Ah is £0.2.
+    """
+    dashboard = DashBoard(robot_bus=parts.RobotBus())
+
+    def test_initial_total_recharge_cost_report(self):
+        """
+        Отчет в начальном состоянии робота
+        :return:
+        """
+        origin_report = "Total recharge cost is 0.0RUB"
+
+        report = self.dashboard.report_total_recharge_cost()
+
+        assert report == origin_report
+
+    def test_when_some_energy_was_wasted(self):
+        """
+        Некоторое кол энергии потрачено
+        :return:
+        """
+        origin_report = "Total recharge cost is 2.8RUB"
+        self.dashboard.robot_bus.left_arm._charge = 10
+
+        report = self.dashboard.report_total_recharge_cost()
+
+        assert report == origin_report
+

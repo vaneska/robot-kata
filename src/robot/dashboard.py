@@ -1,5 +1,6 @@
 
 from src.robot import parts
+import math
 
 
 class DashBoard:
@@ -22,3 +23,14 @@ class DashBoard:
 
         return report
 
+    def report_total_recharge_cost(self):
+
+        cost_per_unit = 0.2
+
+        total_cost = cost_per_unit * (
+                (self.robot_bus.left_arm._max_charge - self.robot_bus.left_arm._charge)
+                +
+                (self.robot_bus.right_foot._max_charge - self.robot_bus.right_foot._charge)
+            )
+
+        return "Total recharge cost is {}RUB".format(math.ceil(total_cost*100)/100)
