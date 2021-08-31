@@ -17,8 +17,11 @@ class DashBoard:
         report += "\t\tLeft arm: {}\n".format(
             self.robot_bus.left_arm._turned_on_status
         )
-        report += "\t\tRight foot: {}".format(
+        report += "\t\tRight foot: {}\n".format(
             self.robot_bus.right_foot._turned_on_status
+        )
+        report += "\t\tRight thigh: {}".format(
+            self.robot_bus.right_thigh._turned_on_status
         )
 
         return report
@@ -31,6 +34,8 @@ class DashBoard:
                 (self.robot_bus.left_arm._max_charge - self.robot_bus.left_arm._charge)
                 +
                 (self.robot_bus.right_foot._max_charge - self.robot_bus.right_foot._charge)
+                +
+                (self.robot_bus.right_thigh._max_charge - self.robot_bus.right_thigh._charge)
             )
 
         return "Total recharge cost is {}RUB".format(math.ceil(total_cost*100)/100)

@@ -15,7 +15,7 @@ class TestDashBoard:
          Report should have one line per robot part,
          and should use identation to visualise the tree structure
         """
-        origin_report = "Turned on statuses:\n\tRobot bus: False\n\t\tLeft arm: False\n\t\tRight foot: False" # noqa
+        origin_report = "Turned on statuses:\n\tRobot bus: False\n\t\tLeft arm: False\n\t\tRight foot: False\n\t\tRight thigh: False" # noqa
 
         report = self.dashboard.report_turn_on_status()
 
@@ -44,7 +44,6 @@ class TestDashBoardTotalRechargeCostReport:
     def test_when_some_energy_was_wasted(self):
         """
         Некоторое кол энергии потрачено
-        :return:
         """
         origin_report = "Total recharge cost is 2.8RUB"
         self.dashboard.robot_bus.left_arm._charge = 10
