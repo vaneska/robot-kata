@@ -7,11 +7,12 @@ class TestTurnedOnStatusReport:
         robot_part=parts.RobotBus(parts=[
             parts.LeftArm(),
             parts.RightFoot(),
+            parts.RightThigh(),
         ])
     )
 
     def test_report(self):
-        orig_result = "Turned on statuses:\n\tRobot bus: OFF\n\t\tLeft arm: OFF\n\t\tRight foot: OFF\n" # noqa
+        orig_result = "Turned on statuses:\n\tRobot bus: OFF\n\t\tLeft arm: OFF\n\t\tRight foot: OFF\n\t\tRight thigh: OFF\n" # noqa
 
         result = self.report.execute()
 
@@ -25,6 +26,7 @@ class TestTotalRechargeCostReport:
             robot_part=parts.RobotBus(parts=[
                 parts.LeftArm(),
                 parts.RightFoot(),
+                parts.RightThigh(),
             ])
         )
         orig_result = "Total recharge cost is 0.0RUB" # noqa
@@ -38,6 +40,7 @@ class TestTotalRechargeCostReport:
             robot_part=parts.RobotBus(parts=[
                 parts.LeftArm(battery=parts.InternalBattery(current_charge=10)),
                 parts.RightFoot(),
+                parts.RightThigh(),
             ])
         )
         orig_result = "Total recharge cost is 2.8RUB" # noqa

@@ -66,6 +66,12 @@ class RightFoot(PartWithBattery):
         self.name = "Right foot"
 
 
+class RightThigh(PartWithBattery):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.name = "Right thigh"
+
+
 class RobotBus(Part):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
