@@ -1,3 +1,6 @@
+from typing import List
+
+
 class TurnedOnStatus:
 
     def __init__(self, status: bool):
@@ -24,7 +27,7 @@ class InternalBattery:
         return self._current_charge
 
 
-class LeftArm:
+class Part:
 
     def __init__(
             self,
@@ -35,12 +38,16 @@ class LeftArm:
         self._turned_on_status = turned_on_status
 
 
+class LeftArm(Part):
+    pass
+
+
 class RobotBus:
 
     def __init__(
             self,
-            left_arm: LeftArm,
+            parts: List[Part],
             turned_on_status: TurnedOnStatus = TurnedOnStatus(False)
     ):
         self._turned_on_status = turned_on_status
-        self.left_arm = left_arm
+        self.parts = parts

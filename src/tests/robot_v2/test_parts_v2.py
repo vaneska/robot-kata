@@ -12,22 +12,32 @@ class TestBattery:
         assert self.battery.current_charge() == 24
 
 
-class TestLeftArm:
+class TestPart:
 
-    arm = parts.LeftArm()
+    part = parts.Part()
 
     def test_initial_turned_on(self):
-        assert not bool(self.arm._turned_on_status)
+        assert not bool(self.part._turned_on_status)
+
+    def test_initial_battery(self):
+        assert isinstance(self.part.battery, parts.InternalBattery)
 
 
 class TestRobotBus:
 
     robot_bus = parts.RobotBus(
-        left_arm=parts.LeftArm()
+        parts=[parts.LeftArm()]
     )
 
     def test_initial_turned_on(self):
         assert not bool(self.robot_bus._turned_on_status)
 
-    def test_left_arm_connected(self):
-        assert isinstance(self.robot_bus.left_arm, parts.LeftArm)
+    def test_all_parts_connected(self):
+        part_types = [parts.LeftArm]
+
+        assert len(part_types) == len(self.robot_bus.parts)
+
+        i = 0
+        for part_type in part_types:
+            assert isinstance(self.robot_bus.parts[i], part_type)
+            i += 1
