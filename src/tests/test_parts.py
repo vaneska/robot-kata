@@ -128,7 +128,7 @@ class TestRightHip:
 
 
 class TestRobotBus:
-    robot_bus = parts.RobotBus()
+    robot_bus = parts.Trunk()
 
     def test_initial_turned_off(self):
         """

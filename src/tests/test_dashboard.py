@@ -4,7 +4,7 @@ from src.robot import parts
 
 class TestDashBoard:
 
-    dashboard = DashBoard(robot_bus=parts.RobotBus())
+    dashboard = DashBoard(robot_bus=parts.Trunk())
 
     def test_initial_turned_on_status_robot_report(self):
         """
@@ -28,7 +28,7 @@ class TestDashBoardTotalRechargeCostReport:
      and calculates the total cost to re-charge all the internal batteries;
      the cost per 1000 Ah is £0.2.
     """
-    dashboard = DashBoard(robot_bus=parts.RobotBus())
+    dashboard = DashBoard(robot_bus=parts.Trunk())
 
     def test_initial_total_recharge_cost_report(self):
         """
@@ -46,7 +46,7 @@ class TestDashBoardTotalRechargeCostReport:
         Некоторое кол энергии потрачено
         """
         origin_report = "Total recharge cost is 2.8RUB"
-        self.dashboard.robot_bus.shoulder.left_arm._charge = 10
+        self.dashboard.trunk.shoulder.left_arm._charge = 10
 
         report = self.dashboard.report_total_recharge_cost()
 

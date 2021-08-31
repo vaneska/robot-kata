@@ -51,7 +51,7 @@ class RightHip:
         self.right_lower_limb = RightLowerLimb()
 
 
-class RobotBus:
+class Trunk:
 
     def __init__(self):
         self._turned_on_status = False
