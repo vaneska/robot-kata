@@ -15,7 +15,7 @@ class TestDashBoard:
          Report should have one line per robot part,
          and should use identation to visualise the tree structure
         """
-        origin_report = "Turned on statuses:\n\tRobot bus: False\n\t\tLeft arm: False\n\t\tRight hip: False\n\t\t\tRight thigh: False\n\t\t\tRight lower limb: False\n\t\t\tRight foot: False\n" # noqa
+        origin_report = "Turned on statuses:\n\tRobot bus: False\n\t\tShoulder: False\n\t\t\tLeft arm: False\n\t\tRight hip: False\n\t\t\tRight thigh: False\n\t\t\tRight lower limb: False\n\t\t\tRight foot: False\n" # noqa
 
         report = self.dashboard.report_turn_on_status()
 
@@ -46,7 +46,7 @@ class TestDashBoardTotalRechargeCostReport:
         Некоторое кол энергии потрачено
         """
         origin_report = "Total recharge cost is 2.8RUB"
-        self.dashboard.robot_bus.left_arm._charge = 10
+        self.dashboard.robot_bus.shoulder.left_arm._charge = 10
 
         report = self.dashboard.report_total_recharge_cost()
 

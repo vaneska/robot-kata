@@ -7,6 +7,15 @@ class LeftArm:
         self._turned_on_status = False
 
 
+class Shoulder:
+
+    def __init__(self):
+        self._max_charge = 24
+        self._charge = self._max_charge
+        self._turned_on_status = False
+        self.left_arm = LeftArm()
+
+
 class RightFoot:
 
     def __init__(self):
@@ -46,5 +55,6 @@ class RobotBus:
 
     def __init__(self):
         self._turned_on_status = False
-        self.left_arm = LeftArm()
         self.right_hip = RightHip()
+        self.shoulder = Shoulder()
+
