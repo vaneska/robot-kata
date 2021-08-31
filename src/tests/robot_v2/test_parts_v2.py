@@ -14,13 +14,20 @@ class TestBattery:
 
 class TestLeftArm:
 
-    arm = parts.LeftArm(
-        battery=parts.InternalBattery(),
-        turned_on_status=parts.TurnedOnStatus(False)
+    arm = parts.LeftArm()
+
+    def test_initial_turned_on(self):
+        assert not bool(self.arm._turned_on_status)
+
+
+class TestRobotBus:
+
+    robot_bus = parts.RobotBus(
+        left_arm=parts.LeftArm()
     )
 
     def test_initial_turned_on(self):
-        """
-        Finally the left arm also has a current On/Off switch status
-        """
-        assert not bool(self.arm._turned_on_status)
+        assert not bool(self.robot_bus._turned_on_status)
+
+    def test_left_arm_connected(self):
+        assert isinstance(self.robot_bus.left_arm, parts.LeftArm)

@@ -26,6 +26,21 @@ class InternalBattery:
 
 class LeftArm:
 
-    def __init__(self, battery: InternalBattery, turned_on_status: TurnedOnStatus):
+    def __init__(
+            self,
+            battery: InternalBattery = InternalBattery(),
+            turned_on_status: TurnedOnStatus = TurnedOnStatus(False)
+    ):
         self.battery = battery
         self._turned_on_status = turned_on_status
+
+
+class RobotBus:
+
+    def __init__(
+            self,
+            left_arm: LeftArm,
+            turned_on_status: TurnedOnStatus = TurnedOnStatus(False)
+    ):
+        self._turned_on_status = turned_on_status
+        self.left_arm = left_arm
