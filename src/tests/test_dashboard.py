@@ -15,7 +15,7 @@ class TestDashBoard:
          Report should have one line per robot part,
          and should use identation to visualise the tree structure
         """
-        origin_report = "Turned on statuses:\n\tRobot bus: False\n\t\tShoulder: False\n\t\t\tLeft arm: False\n\t\tRight hip: False\n\t\t\tRight thigh: False\n\t\t\tRight lower limb: False\n\t\t\tRight foot: False\n" # noqa
+        origin_report = "Turned on statuses:\n\tRobot bus: False\n\t\tShoulder: False\n\t\t\tLeft arm: False\n\t\tRight hip: False\n\t\t\tRight thigh: False\n\t\t\t\tRight lower limb: False\n\t\t\t\t\tRight foot: False\n" # noqa
 
         report = self.dashboard.report_turn_on_status()
 

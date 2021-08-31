@@ -69,30 +69,42 @@ class TestRightFoot:
 
 class TestRightThigh:
 
-    arm = parts.RightThigh()
+    right_thigh = parts.RightThigh()
 
     def test_max_charge(self):
-        assert self.arm._max_charge == 24
+        assert self.right_thigh._max_charge == 24
 
     def test_initial_charge(self):
-        assert self.arm._charge == 24
+        assert self.right_thigh._charge == 24
 
     def test_initial_turned_on(self):
-        assert self.arm._turned_on_status is False
+        assert self.right_thigh._turned_on_status is False
+
+    def test_right_lower_limb_connected_to_robot_bus(self):
+        """
+        the right lower limb is connected to the robot bus too.
+        """
+        assert isinstance(self.right_thigh.right_lower_limb, parts.RightLowerLimb)
 
 
 class TestRightLowerLimb:
 
-    arm = parts.RightLowerLimb()
+    right_lower_limb = parts.RightLowerLimb()
 
     def test_max_charge(self):
-        assert self.arm._max_charge == 24
+        assert self.right_lower_limb._max_charge == 24
 
     def test_initial_charge(self):
-        assert self.arm._charge == 24
+        assert self.right_lower_limb._charge == 24
 
     def test_initial_turned_on(self):
-        assert self.arm._turned_on_status is False
+        assert self.right_lower_limb._turned_on_status is False
+
+    def test_right_foot_connected_to_robot_bus(self):
+        """
+        the right foot is connected to the robot bus too.
+        """
+        assert isinstance(self.right_lower_limb.right_foot, parts.RightFoot)
 
 
 class TestRightHip:
@@ -108,23 +120,11 @@ class TestRightHip:
     def test_initial_turned_on(self):
         assert self.right_hip._turned_on_status is False
 
-    def test_right_foot_connected_to_robot_bus(self):
-        """
-        the right foot is connected to the robot bus too.
-        """
-        assert isinstance(self.right_hip.right_foot, parts.RightFoot)
-
     def test_right_thigh_connected_to_robot_bus(self):
         """
         the right thigh is connected to the robot bus too.
         """
         assert isinstance(self.right_hip.right_thigh, parts.RightThigh)
-
-    def test_right_lower_limb_connected_to_robot_bus(self):
-        """
-        the right lower limb is connected to the robot bus too.
-        """
-        assert isinstance(self.right_hip.right_lower_limb, parts.RightLowerLimb)
 
 
 class TestRobotBus:

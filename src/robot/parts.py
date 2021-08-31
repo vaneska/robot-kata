@@ -30,6 +30,7 @@ class RightThigh:
         self._max_charge = 24
         self._charge = self._max_charge
         self._turned_on_status = False
+        self.right_lower_limb = RightLowerLimb()
 
 
 class RightLowerLimb:
@@ -38,6 +39,7 @@ class RightLowerLimb:
         self._max_charge = 24
         self._charge = self._max_charge
         self._turned_on_status = False
+        self.right_foot = RightFoot()
 
 
 class RightHip:
@@ -46,9 +48,7 @@ class RightHip:
         self._max_charge = 24
         self._charge = self._max_charge
         self._turned_on_status = False
-        self.right_foot = RightFoot()
         self.right_thigh = RightThigh()
-        self.right_lower_limb = RightLowerLimb()
 
 
 class Trunk:

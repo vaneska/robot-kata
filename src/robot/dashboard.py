@@ -26,11 +26,11 @@ class DashBoard:
         report += "\t\t\tRight thigh: {}\n".format(
             self.trunk.right_hip.right_thigh._turned_on_status
         )
-        report += "\t\t\tRight lower limb: {}\n".format(
-            self.trunk.right_hip.right_lower_limb._turned_on_status
+        report += "\t\t\t\tRight lower limb: {}\n".format(
+            self.trunk.right_hip.right_thigh.right_lower_limb._turned_on_status
         )
-        report += "\t\t\tRight foot: {}\n".format(
-            self.trunk.right_hip.right_foot._turned_on_status
+        report += "\t\t\t\t\tRight foot: {}\n".format(
+            self.trunk.right_hip.right_thigh.right_lower_limb.right_foot._turned_on_status
         )
 
 
@@ -47,11 +47,11 @@ class DashBoard:
                 +
                 (self.trunk.shoulder.left_arm._max_charge - self.trunk.shoulder.left_arm._charge)
                 +
-                (self.trunk.right_hip.right_foot._max_charge - self.trunk.right_hip.right_foot._charge)
+                (self.trunk.right_hip.right_thigh.right_lower_limb.right_foot._max_charge - self.trunk.right_hip.right_thigh.right_lower_limb.right_foot._charge)
                 +
                 (self.trunk.right_hip.right_thigh._max_charge - self.trunk.right_hip.right_thigh._charge)
                 +
-                (self.trunk.right_hip.right_lower_limb._max_charge - self.trunk.right_hip.right_lower_limb._charge)
+                (self.trunk.right_hip.right_thigh.right_lower_limb._max_charge - self.trunk.right_hip.right_thigh.right_lower_limb._charge)
                 +
                 (self.trunk.right_hip._max_charge - self.trunk.right_hip._charge)
             )
