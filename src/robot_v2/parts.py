@@ -18,13 +18,12 @@ class TurnedOnStatus:
 
 
 class InternalBattery:
-
     MAX_CHARGE = 24
 
-    def __init__(self):
-        self._current_charge = self.MAX_CHARGE
+    def __init__(self, current_charge: int = MAX_CHARGE):
+        self._current_charge = current_charge
 
-    def current_charge(self):
+    def get_current_charge(self):
         return self._current_charge
 
 
@@ -54,14 +53,14 @@ class PartWithBattery:
         self.name = "PartWithBattery"
 
 
-class LeftArm(Part):
+class LeftArm(PartWithBattery):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.name = "Left arm"
 
 
-class RightFoot(Part):
+class RightFoot(PartWithBattery):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.name = "Right foot"

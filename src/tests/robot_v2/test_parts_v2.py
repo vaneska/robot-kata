@@ -9,7 +9,7 @@ class TestBattery:
         assert self.battery.MAX_CHARGE == 24
 
     def test_initial_charge(self):
-        assert self.battery.current_charge() == 24
+        assert self.battery.get_current_charge() == 24
 
 
 class TestPart:
