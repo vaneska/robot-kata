@@ -21,7 +21,7 @@ class TestLeftArm:
         """
         Finally the left arm also has a current On/Off switch status
         """
-        assert self.arm._turned_on_status is False
+        assert bool(self.arm._turned_on_status) == False
 
 
 class TestShoulder:

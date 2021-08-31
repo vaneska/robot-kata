@@ -1,10 +1,25 @@
 
+class TurnedOnStatus:
+
+    def __init__(self, status: bool):
+        self.status = status
+
+    def __str__(self):
+        if self.status :
+            return "ON"
+        else :
+            return "OFF"
+
+    def __bool__(self):
+        return self.status
+
+
 class LeftArm:
 
     def __init__(self):
         self._max_charge = 24
         self._charge = self._max_charge
-        self._turned_on_status = False
+        self._turned_on_status = TurnedOnStatus(False)
 
 
 class Shoulder:
