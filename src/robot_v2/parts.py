@@ -1,4 +1,5 @@
-from typing import List
+from __future__ import annotations
+from typing import List, Optional
 
 
 class TurnedOnStatus:
@@ -31,27 +32,42 @@ class Part:
 
     def __init__(
             self,
-            battery: InternalBattery = InternalBattery(),
+            parts: Optional[List[Part]] = None,
             turned_on_status: TurnedOnStatus = TurnedOnStatus(False)
     ):
-        self.battery = battery
-        self._turned_on_status = turned_on_status
+        self.parts = parts or []
+        self.turned_on_status = turned_on_status
+        self.name = "Part"
 
 
-class LeftArm(Part):
-    pass
-
-
-class RightFoot(Part):
-    pass
-
-
-class RobotBus:
+class PartWithBattery:
 
     def __init__(
             self,
-            parts: List[Part],
+            parts: Optional[List[Part]] = None,
+            battery: InternalBattery = InternalBattery(),
             turned_on_status: TurnedOnStatus = TurnedOnStatus(False)
     ):
-        self._turned_on_status = turned_on_status
-        self.parts = parts
+        self.parts = parts or []
+        self.battery = battery
+        self.turned_on_status = turned_on_status
+        self.name = "PartWithBattery"
+
+
+class LeftArm(Part):
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.name = "Left arm"
+
+
+class RightFoot(Part):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.name = "Right foot"
+
+
+class RobotBus(Part):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.name = "Robot bus"
