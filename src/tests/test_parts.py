@@ -60,6 +60,21 @@ class TestRightThigh:
     def test_initial_turned_on(self):
         assert self.arm._turned_on_status is False
 
+
+class TestRightLowerLimb:
+
+    arm = parts.RightLowerLimb()
+
+    def test_max_charge(self):
+        assert self.arm._max_charge == 24
+
+    def test_initial_charge(self):
+        assert self.arm._charge == 24
+
+    def test_initial_turned_on(self):
+        assert self.arm._turned_on_status is False
+
+
 class TestRobotBus:
     robot_bus = parts.RobotBus()
 
@@ -86,3 +101,9 @@ class TestRobotBus:
         the right thigh is connected to the robot bus too.
         """
         assert isinstance(self.robot_bus.right_thigh, parts.RightThigh)
+
+    def test_right_lower_limb_connected_to_robot_bus(self):
+        """
+        the right lower limb is connected to the robot bus too.
+        """
+        assert isinstance(self.robot_bus.right_lower_limb, parts.RightLowerLimb)
