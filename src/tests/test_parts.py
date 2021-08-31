@@ -75,6 +75,38 @@ class TestRightLowerLimb:
         assert self.arm._turned_on_status is False
 
 
+class TestRightHip:
+
+    right_hip = parts.RightHip()
+
+    def test_max_charge(self):
+        assert self.right_hip._max_charge == 24
+
+    def test_initial_charge(self):
+        assert self.right_hip._charge == 24
+
+    def test_initial_turned_on(self):
+        assert self.right_hip._turned_on_status is False
+
+    def test_right_foot_connected_to_robot_bus(self):
+        """
+        the right foot is connected to the robot bus too.
+        """
+        assert isinstance(self.right_hip.right_foot, parts.RightFoot)
+
+    def test_right_thigh_connected_to_robot_bus(self):
+        """
+        the right thigh is connected to the robot bus too.
+        """
+        assert isinstance(self.right_hip.right_thigh, parts.RightThigh)
+
+    def test_right_lower_limb_connected_to_robot_bus(self):
+        """
+        the right lower limb is connected to the robot bus too.
+        """
+        assert isinstance(self.right_hip.right_lower_limb, parts.RightLowerLimb)
+
+
 class TestRobotBus:
     robot_bus = parts.RobotBus()
 
@@ -90,20 +122,8 @@ class TestRobotBus:
         """
         assert isinstance(self.robot_bus.left_arm, parts.LeftArm)
 
-    def test_right_foot_connected_to_robot_bus(self):
-        """
-        the right foot is connected to the robot bus too.
-        """
-        assert isinstance(self.robot_bus.right_foot, parts.RightFoot)
-
-    def test_right_thigh_connected_to_robot_bus(self):
-        """
-        the right thigh is connected to the robot bus too.
-        """
-        assert isinstance(self.robot_bus.right_thigh, parts.RightThigh)
-
-    def test_right_lower_limb_connected_to_robot_bus(self):
+    def test_right_hip_connected_to_robot_bus(self):
         """
         the right lower limb is connected to the robot bus too.
         """
-        assert isinstance(self.robot_bus.right_lower_limb, parts.RightLowerLimb)
+        assert isinstance(self.robot_bus.right_hip, parts.RightHip)
