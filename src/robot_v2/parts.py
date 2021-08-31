@@ -42,6 +42,10 @@ class LeftArm(Part):
     pass
 
 
+class RightFoot(Part):
+    pass
+
+
 class RobotBus:
 
     def __init__(

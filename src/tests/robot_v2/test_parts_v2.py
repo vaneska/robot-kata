@@ -26,14 +26,14 @@ class TestPart:
 class TestRobotBus:
 
     robot_bus = parts.RobotBus(
-        parts=[parts.LeftArm()]
+        parts=[parts.LeftArm(), parts.RightFoot()]
     )
 
     def test_initial_turned_on(self):
         assert not bool(self.robot_bus._turned_on_status)
 
     def test_all_parts_connected(self):
-        part_types = [parts.LeftArm]
+        part_types = [parts.LeftArm, parts.RightFoot]
 
         assert len(part_types) == len(self.robot_bus.parts)
 
