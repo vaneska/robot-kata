@@ -4,7 +4,7 @@ from src.robot_v2 import dashboard, parts
 class TestTurnedOnStatusReport:
     report = dashboard.TurnedOnStatusReport(
         robot_part=parts.RobotBus(parts=[
-            parts.LeftArm(),
+            parts.Shoulder(parts=[parts.LeftArm()]),
             parts.RightHip(parts=[
                 parts.RightThigh(parts=[parts.RightLowerLimb(
                     parts=[parts.RightFoot()]
@@ -13,7 +13,7 @@ class TestTurnedOnStatusReport:
     )
 
     def test_report(self):
-        orig_result = "Turned on statuses:\n\tRobot bus: OFF\n\t\tLeft arm: OFF\n\t\tRight hip: OFF\n\t\t\tRight thigh: OFF\n\t\t\t\tRight lower limb: OFF\n\t\t\t\t\tRight foot: OFF\n" # noqa
+        orig_result = "Turned on statuses:\n\tRobot bus: OFF\n\t\tShoulder: OFF\n\t\t\tLeft arm: OFF\n\t\tRight hip: OFF\n\t\t\tRight thigh: OFF\n\t\t\t\tRight lower limb: OFF\n\t\t\t\t\tRight foot: OFF\n"  # noqa
 
         result = self.report.execute()
 
@@ -25,7 +25,7 @@ class TestTotalRechargeCostReport:
     def test_initial_report(self):
         report = dashboard.TotalRechargeCostReport(
             robot_part=parts.RobotBus(parts=[
-                parts.LeftArm(),
+                parts.Shoulder(parts=[parts.LeftArm()]),
                 parts.RightHip(parts=[
                     parts.RightThigh(parts=[parts.RightLowerLimb(
                         parts=[parts.RightFoot()]
@@ -41,8 +41,8 @@ class TestTotalRechargeCostReport:
     def test_report_when_some_energy_was_wasted(self):
         report = dashboard.TotalRechargeCostReport(
             robot_part=parts.RobotBus(parts=[
-                parts.LeftArm(
-                    battery=parts.InternalBattery(current_charge=10)),
+                parts.Shoulder(parts=[parts.LeftArm(
+                    battery=parts.InternalBattery(current_charge=10))]),
                 parts.RightHip(parts=[
                     parts.RightThigh(parts=[parts.RightLowerLimb(
                         parts=[parts.RightFoot()]

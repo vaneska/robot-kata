@@ -53,6 +53,12 @@ class PartWithBattery:
         self.name = "PartWithBattery"
 
 
+class Shoulder(PartWithBattery):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.name = "Shoulder"
+
+
 class LeftArm(PartWithBattery):
 
     def __init__(self, **kwargs):
