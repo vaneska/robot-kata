@@ -38,7 +38,7 @@ class TestPartWithBattery:
 
 class TestRobotBus:
 
-    robot_bus = parts.RobotBus(
+    robot_bus = parts.Trunk(
         parts=[parts.LeftArm(), parts.RightFoot()]
     )
 

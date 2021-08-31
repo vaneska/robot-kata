@@ -90,7 +90,7 @@ class RightHip(PartWithBattery):
         self.name = "Right hip"
 
 
-class RobotBus(Part):
+class Trunk(Part):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.name = "Robot bus"
+        self.name = "Trunk"
