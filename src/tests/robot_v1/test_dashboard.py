@@ -1,5 +1,5 @@
-from src.robot.dashboard import DashBoard
-from src.robot import parts
+from src.robot_v1.dashboard import DashBoard
+from src.robot_v1 import parts
 
 
 class TestDashBoard:

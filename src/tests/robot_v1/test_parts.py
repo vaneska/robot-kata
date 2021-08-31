@@ -1,4 +1,4 @@
-from src.robot import parts
+from src.robot_v1 import parts
 
 
 class TestLeftArm:
